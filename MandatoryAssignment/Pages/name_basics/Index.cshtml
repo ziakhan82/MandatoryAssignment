@@ -1,0 +1,68 @@
+﻿@page
+@model MandatoryAssignment.Pages.name_basics.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<input type="search" id="searchrec" class="search" placeholder="search name..." />
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table" id="table1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name_basics[0].primary_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name_basics[0].birth_year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name_basics[0].death_year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.name_basics) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.primary_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birth_year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.death_year)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.name_basic_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.name_basic_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.name_basic_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.search').on('keyup', function () {
+            var datasearch = $(this).val().toLowerCase();
+            $('#table1 tr').each(function ()
+            {
+                var stringdata = $(this).text().toUpperCase();
+                if (stringdata.indexOf(datasearch) === -1) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+
+        });
+    });
+</script>

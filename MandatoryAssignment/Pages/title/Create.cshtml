@@ -1,0 +1,69 @@
+﻿@page
+@model MandatoryAssignment.Pages.title.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="title.title_id" class="control-label"></label>
+                <input asp-for="title.title_id" class="form-control" />
+                <span asp-validation-for="title.title_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.content_type_id" class="control-label"></label>
+                <input asp-for="title.content_type_id" class="form-control" />
+                <span asp-validation-for="title.content_type_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.primary_title" class="control-label"></label>
+                <input asp-for="title.primary_title" class="form-control" />
+                <span asp-validation-for="title.primary_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.original_title" class="control-label"></label>
+                <input asp-for="title.original_title" class="form-control" />
+                <span asp-validation-for="title.original_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.is_adult" class="control-label"></label>
+                <input asp-for="title.is_adult" class="form-control" />
+                <span asp-validation-for="title.is_adult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.start_year" class="control-label"></label>
+                <input asp-for="title.start_year" class="form-control" />
+                <span asp-validation-for="title.start_year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.end_year" class="control-label"></label>
+                <input asp-for="title.end_year" class="form-control" />
+                <span asp-validation-for="title.end_year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="title.runtime_mintues" class="control-label"></label>
+                <input asp-for="title.runtime_mintues" class="form-control" />
+                <span asp-validation-for="title.runtime_mintues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
